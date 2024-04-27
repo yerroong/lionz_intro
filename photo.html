@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>김예린의 사진 갤러리</title>
+    <meta charset="utf-8">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 스타일 시트 링크 -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            font-size: 17px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 5px 15px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        header nav {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        header nav a {
+            color: rgb(249, 255, 158);
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            transition: border 0.2s;
+        }
+
+        header nav a:hover {
+            border: 1px solid white;
+        }
+
+        nav a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img.expanded {
+            transform: scale(1.6);
+            z-index: 1000;
+            border: 2px solid #333;
+        }
+
+        .note {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>아기사자 FE 김예린의 갤러리입니다!💛</h1>
+        <nav>
+            <a href="home.html">홈</a>
+            <a href="photo.html" class="active">사진</a>
+            <a href="home.html">업데이트중</a>
+        </nav>
+    </header>
+    
+    <div class="note">
+        <p><br>한번 클릭시 사진 확대, 두번 클릭시 축소</p>
+    </div>
+
+    <div class="gallery">
+        <img src="img1.jpg" alt="Image 1">
+        <img src="img2.jpg" alt="Image 2">
+        <img src="img3.jpg" alt="Image 3">
+        <img src="img4.jpg" alt="Image 4">
+        <img src="img5.jpg" alt="Image 5">
+        <img src="img6.jpg" alt="Image 6">
+        <img src="img7.jpg" alt="Image 7">
+        <img src="img8.jpg" alt="Image 8">
+        <img src="img9.jpg" alt="Image 9">
+        <img src="img10.jpg" alt="Image 10">
+        <img src="img11.jpg" alt="Image 11">
+        <img src="img12.jpg" alt="Image 12">
+    </div>
+
+
+    <script>
+        const images = document.querySelectorAll(".gallery img");
+        images.forEach((image) => {
+            image.addEventListener("click", () => {
+                if (image.classList.contains("expanded")) {
+                    image.classList.remove("expanded");
+                } else {
+                    image.classList.add("expanded");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
